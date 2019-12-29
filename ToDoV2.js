@@ -19,12 +19,12 @@ const findMyToDo = function(myTodo,title){
     })
     if (index >= 0){
         if(myTodo[index].isDone){
-            return `${title} is done`
+            return `${title} is done\n`
         }else{
-            return `${title} is still pending`
+            return `${title} is still pending\n`
         }
     }
-    return `${title} is not found in todo list`
+    return `${title} is not found in todo list\n`
 }
 
 let doTask = function(title){
@@ -33,26 +33,29 @@ let doTask = function(title){
     })
     if (index >= 0){
         myToDoList[index].isDone = true
-        console.log(`Great!!! You have finished ${title}, your task number ${index + 1}`)
+        console.log(`Great!!! You have finished ${title}, your task number ${index + 1}\n`)
     }else{
-        console.log("No such task is present in your ToDo list")
+        console.log("No such task is present in your ToDo list\n")
     }
 }
 
 let showPendingTask = function(){
+    console.log("\nYour pending tasks are:")
     myToDoList.forEach(function(task,index){
         if(!task.isDone){
             console.log(task.title)
         }
     })
+    console.log("")
 }
 
 // console.log(findMyToDo(myToDoList,'study'))
 
 // doTask('sttudy')
 
-// console.log(findMyToDo(myToDoList,'study'))
+
 
 showPendingTask()
 doTask('study')
 showPendingTask()
+console.log(findMyToDo(myToDoList,'study'))
